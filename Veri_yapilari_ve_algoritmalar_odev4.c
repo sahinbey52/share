@@ -21,8 +21,8 @@ int main()
 {
 	setlocale(LC_ALL, "Turkish");
 	
-	ekle(123456,"Serpil Üstebay");
-	ekle(123457,"Ayþe Gül");
+	ekle(123456,"Serpil Ãœstebay");
+	ekle(123457,"AyÅŸe GÃ¼l");
 	
 	int secenek=0;
 	char isim[30];
@@ -34,34 +34,34 @@ int main()
 		numara=0;
 		strcpy(isim,"");
 		
-		printf("\nLütfen yapmak istediðiniz iþlemi aþaðýdaki sayýlarý kullanarak belirtin.\n");
-		printf("(1) Öðrenci ekleme\n");
-		printf("(2) Öðrenci arama\n");
-		printf("(3) Öðrenci silme\n");
-		printf("(4) Öðrencileri listeleme\n");
-		printf("(5) Çýkýþ\n");
-		printf("Seçiminiz: ");
+		printf("\nLÃ¼tfen yapmak istediÄŸiniz iÅŸlemi aÅŸaÄŸÄ±daki sayÄ±larÄ± kullanarak belirtin.\n");
+		printf("(1) Ã–ÄŸrenci ekleme\n");
+		printf("(2) Ã–ÄŸrenci arama\n");
+		printf("(3) Ã–ÄŸrenci silme\n");
+		printf("(4) Ã–ÄŸrencileri listeleme\n");
+		printf("(5) Ã‡Ä±kÄ±ÅŸ\n");
+		printf("SeÃ§iminiz: ");
 		
 		scanf("%d",&secenek);
 		
 		switch (secenek)
 		{
 			case 1:
-				printf("Eklemek istediðiniz öðrencinin numarasýný girin:\n");
+				printf("Eklemek istediÄŸiniz Ã¶ÄŸrencinin numarasÄ±nÄ± girin:\n");
 				scanf("%d",&numara);
-				printf("Eklemek istediðiniz öðrencinin isim ve soyismini girin:\n");
+				printf("Eklemek istediÄŸiniz Ã¶ÄŸrencinin isim ve soyismini girin:\n");
 				fflush(stdin);
 				gets(isim);
 				ekle(numara,isim);
-				printf("Kayýt tamamlandý.\n");
+				printf("KayÄ±t tamamlandÄ±.\n");
 				break;
 			case 2:
-				printf("Aramak istediðiniz öðrencinin numarasýný girin:\n");
+				printf("Aramak istediÄŸiniz Ã¶ÄŸrencinin numarasÄ±nÄ± girin:\n");
 				scanf("%d",&numara);
 				ara(numara);
 				break;
 			case 3:
-				printf("Silmek istediðiniz öðrencinin numarasýný girin:\n");
+				printf("Silmek istediÄŸiniz Ã¶ÄŸrencinin numarasÄ±nÄ± girin:\n");
 				scanf("%d",&numara);
 				sil(numara);
 				break;
@@ -71,7 +71,7 @@ int main()
 			case 5:
 				break;
 			default:
-				printf("Geçersiz bir seçenek girdiniz!\n");
+				printf("GeÃ§ersiz bir seÃ§enek girdiniz!\n");
 		}
 	}
 	while (secenek!=5);
@@ -106,20 +106,20 @@ void ara(int num)
 {
 	NODE *arama;
 	arama=ilk;
-	printf("Bulunan Sonuçlar:\n");
+	printf("Bulunan SonuÃ§lar:\n");
 	int flag=0;
 	while (arama!=NULL)
 	{
 		if (arama->numara==num)
 		{
-			printf("Ýsim-Soyisim: %s\nNumara: %d\n",arama->isim_soyisim,arama->numara);
+			printf("Ä°sim-Soyisim: %s\nNumara: %d\n",arama->isim_soyisim,arama->numara);
 			flag=1;
 			break;
 		}
 		arama=arama->next;
 	}
 	if (flag==0)
-	printf("Herhangi bir kayýt bulunamadý!\n");
+	printf("Herhangi bir kayÄ±t bulunamadÄ±!\n");
 }
 
 void sil(int num)
@@ -156,15 +156,15 @@ void sil(int num)
 		simdiki=simdiki->next;
 	}
 	if (flag==1)
-	printf("Silme iþlemi baþarýyla gerçekleþti.\n");
+	printf("Silme iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸti.\n");
 	else
-	printf("Kayýt bulunamadý!\n");
+	printf("KayÄ±t bulunamadÄ±!\n");
 }
 
 void listele()
 {
 	NODE *liste=ilk;
-	printf("Kayýtlý Öðrenciler\nNumara\tÝsim-Soyisim\n\n");
+	printf("KayÄ±tlÄ± Ã–ÄŸrenciler\nNumara\tÄ°sim-Soyisim\n\n");
 	while (liste!=NULL)
 	{
 		printf("%d\t%s\n",liste->numara,liste->isim_soyisim);
